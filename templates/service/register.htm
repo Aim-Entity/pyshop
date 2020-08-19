@@ -1,0 +1,42 @@
+{% extends 'base.htm' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block head %}
+  <title>Register</title>
+  <link rel="stylesheet" href="{% static 'service/register/style.css' %}">
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <div class="form-container"></div>
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset class="fieldset form-group">
+        <legend class="legend border-bottom mb-4">Register Here!</legend>
+        {{form|crispy}}
+      </fieldset>
+
+      <div class="form-group">
+        <button class="submit">Sign Up</button>
+      </div>
+    </form>
+
+    <div>
+      <small class="login-remainder">Already Have An Acount? <a href="{% url 'login' %}">Sign In</a></small>
+    </div>
+  </div>
+
+
+  <script src="{% static 'service/register/app.js' %}"></script>
+  {% endblock %}
+</body>
+
+</html>

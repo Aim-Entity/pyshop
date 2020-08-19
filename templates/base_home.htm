@@ -1,0 +1,102 @@
+{% extends 'base.htm' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block head %}
+  <link rel="stylesheet" href="{% static 'home/style.css' %}">
+  <title>Home</title>
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <div class="s1">
+      <form method="GET">
+        {{filter.form}}
+
+        <button type="submit" class="search-btn">
+          <img src="{% static 'home/imgs/mag_glass.svg' %}" class="mag-glass" alt="Mag Glas">
+        </button>
+      </form>
+
+      <ul class="category">
+        <a href="{% url 'home' %}" class="cat-link veg-a">
+          <li class="cat veg">Vegetables</li>
+        </a>
+        <a href="{% url 'fruit' %}" class="cat-link">
+          <li class="cat fruit">Fruits</li>
+        </a>
+        <a href="{% url 'dairy' %}" class="cat-link">
+          <li class="cat dairy">Dairy</li>
+        </a>
+        <a href="{% url 'meat' %}" class="cat-link">
+          <li class="cat meat">Meat</li>
+        </a>
+        <a href="{% url 'sugar' %}" class="cat-link">
+          <li class="cat sugar">Sugar</li>
+        </a>
+        <a href="{% url 'bread' %}" class="cat-link">
+          <li class="cat bread">Bread</li>
+        </a>
+        <a href="{% url 'pre' %}" class="cat-link">
+          <li class="cat pre-packed">Pre-Packed</li>
+        </a>
+        <a href="{% url 'can' %}" class="cat-link">
+          <li class="cat cans">Cans</li>
+        </a>
+        <a href="{% url 'misc' %}" class="cat-link">
+          <li class="cat misc">Misc</li>
+        </a>
+      </ul>
+    </div>
+
+    <div class="s2">
+      <div class="item-container">
+        {% for item in filter.qs %}
+        <div class="item">
+          <img src="{{item.image.url}}" alt="Item Picture" class="item-img">
+
+          <div class="item-details">
+            <h3 class="item-name">{{ item.name|title }}</h3>
+            <a href="{% url 'item' item.slug %}"><button class="item-view">View</button></a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="pagination">
+        {% if is_paginated %}
+
+        {% if page_obj.has_previous %}
+        <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+        <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+        {% endif %}
+
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'home/app.js' %}"></script>
+  {% endblock %}
+</body>
+
+</html>

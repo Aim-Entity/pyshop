@@ -1,0 +1,154 @@
+.form-container{
+  position: absolute;
+  width: 1080px;
+  height: 925px;
+  left: 100px;
+  top: 137px;
+  
+  background: #FFFBFB;
+  border: 2px solid #EBE3E3;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+#div_id_username{
+  position: absolute;
+  width: 450px;
+  height: 95px;
+  left: 190px;
+  top: 253px;
+}
+
+#div_id_email{
+  position: absolute;
+  width: 450px;
+  height: 97px;
+  left: 190px;
+  top: 375px;
+}
+
+#div_id_password1{
+  position: absolute;
+  width: 842px;
+  height: 313px;
+  left: 190px;
+  top: 488px;
+}
+
+#div_id_password2{
+  position: absolute;
+  width: 991px;
+  height: 93px;
+  left: 189px;
+  top: 849px;
+}
+
+#id_username{
+  width: 450px;
+  height: 50px;
+  
+  background: #FFFFFF;
+  border: 0.5px solid #262323;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+#id_email{
+  width: 450px;
+  height: 50px;
+  
+  background: #FFFFFF;
+  border: 0.5px solid #262323;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+#id_password1{
+  width: 450px;
+  height: 50px;
+  
+  background: #FFFFFF;
+  border: 0.5px solid #262323;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+#id_password2{
+  width: 450px;
+  height: 50px;
+  
+  background: #FFFFFF;
+  border: 0.5px solid #262323;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.submit{
+  position: absolute;
+  width: 277px;
+  height: 52px;
+  left: 190px;
+  top: 998px;
+  
+  background: #FFFFFF;
+  border: 1px solid #D82796;
+  box-sizing: border-box;
+  border-radius: 5px;
+  
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  
+  color: #D82796;
+}
+
+.legend{
+  position: absolute;
+  width: 60%;
+  height: 44px;
+  left: 190px;
+  top: 162px;
+  
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 44px;
+  /* identical to box height */
+  
+  
+  color: #000000;
+}
+
+.login-remainder{
+  position: absolute;
+  width: 395px;
+  height: 29px;
+  left: 518px;
+  top: 1009px;
+  
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  
+  color: #000000;
+}
+
+fieldset ul {
+  position: relative;
+  list-style: none;
+  font-size: 20px;
+  top: 40px;
+
+  color: #000000;
+}
+
+@media screen and (max-width: 375px){
+  .legend{
+    width: 260px;
+  }
+}

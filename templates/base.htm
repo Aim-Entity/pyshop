@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"
+    integrity="sha256-hBMojZuWKocCflyaG8T19KBq9OlTlK39CTxb8AUWKhY=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="{% static 'base.css' %}">
+  {% block head %}
+  <title>CHANGE ME</title>
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <h1>ADD A CONTENT BLOCK</h1>
+  {% endblock %}
+
+  <div class="base-container">
+    <header class="base-head">
+      <nav class="navigation">
+        <a href="{% url 'home' %}">
+          <h2 class="name">PyShop</h2>
+        </a>
+        <ul class="base-ul">
+          {% if user.is_authenticated %}
+          <li class="base-li logout"><a href="{% url 'logout' %}" class="base-a a-logout">Logout</a></li>
+          <li class="base-li cart"><a href="" class="base-a a-cart"><img src="{% static 'home/imgs/cart.svg' %}"
+                alt="Cart" class="cart-img"></a>
+          </li>
+          {% else %}
+          <li class="base-li join"><a href="{% url 'register' %}" class="base-a a-join">Join Now</a></li>
+          <li class="base-li login"><a href="{% url 'login' %}" class="base-a a-login">Login</a></li>
+          {% endif %}
+        </ul>
+
+        <div class="hamburger">
+          <hr class="h1 h">
+          <hr class="h2 h">
+          <hr class="h3 h">
+        </div>
+      </nav>
+
+      {% if messages %}
+      {% for message in messages %}
+      <div class="message">
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+    </header>
+
+    <footer class="foot">
+      <div class="inner-foot">
+        <h3 class="copyright">Bilal Uddin &copy; 2020</h3>
+        <h3 class="fontA">Fontawesome Fonts</h3>
+      </div>
+    </footer>
+  </div>
+
+  <script src="{% static 'base.js' %}"></script>
+</body>
+
+</html>

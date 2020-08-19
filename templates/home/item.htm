@@ -1,0 +1,42 @@
+{% extends 'base.htm' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block head %}
+  <title>Register</title>
+  <link rel="stylesheet" href="{% static 'item/style.css' %}">
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <aside>
+      <div class="aside-container">
+        <img src="{{ object.image.url }}" alt="Item" class="item-img">
+        <h2 class="item-price">£{{ object.price }} / {{ object.batch }}KG</h2>
+        <h3 class="item-cat">{{ object.category }}</h3>
+
+        <a href=""><button class="cart">Add To Cart</button></a>
+      </div>
+    </aside>
+
+    <section>
+      <div class="section-container">
+        <h2 class="item-name">{{ item.name|title }}</h2>
+        <h2 class="description">Description</h2>
+        <p class="item-desc">{{ item.desc }}</p>
+      </div>
+    </section>
+  </div>
+
+
+  <script src="{% static 'item/app.js' %}"></script>
+  {% endblock %}
+</body>
+
+</html>

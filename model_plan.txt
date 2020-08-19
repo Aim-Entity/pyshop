@@ -1,0 +1,97 @@
+Models:
+
+- User
+
+- Profile
+
+- Item
+
+- Cart
+
+
+	User:
+		- email (Email Field)
+		- password
+		- password 2
+
+	Profile:
+		- User (OneToOneField)
+		- Cart (OneToManyField)
+		- <AS A USER IS CREATED, A PROFILE IS ALSO CREATED>
+
+	Item:
+		- name (CharField)
+		- image (ImageField)
+		- category (ChoiceField)  # Default = MISC
+		- price (DecimalField)
+		- batch (IntergerField) # kg per batch. Not required (null=True)
+		- desc (TextField) # Default = "One of PyShop's item"
+		- slug <Mybe>
+
+	Cart:
+		- Item (ForeignKey)
+
+Root Ranking:
+
+1. Item
+
+2. Cart
+
+3. User
+
+4. Profile
+
+Scenario:
+
+Item:
+	[
+	- Apple
+	- Apple.jpg
+	- Fruit
+	- 2.99
+	- 2
+	- The most commonly known fruit all over the world, at PyShop you will find our apple out of the world
+	- apple
+	,
+
+	- pineapple
+	- pine
+	- Fruit
+	- 3.99
+	- 2
+	- <Default>
+	- pineapple
+	]
+
+Cart:
+	[
+	- Apple
+		- Apple
+		- Apple.jpg
+		- Fruit
+		- 2.99
+		- 2
+		- The most commonly known fruit all over the world, at PyShop you will find our apple out of the world
+		- apple
+	,
+	
+	- Pineapple
+		- ETC
+	]
+	
+User:
+	bilaluddin474@gmail.com
+	password123
+	password123
+
+Profile:
+	- bilaluddin474@gmail.com
+		- bilaluddin474@gmail.com
+		- password123
+		- password123
+
+	- Apple
+		- ETC
+	
+	- Pineapple
+		- ETC
